@@ -2,7 +2,8 @@
 ## Devlogs
 ### W1
 Write your W1 activity Devlog here.
-
+I would spot the cat appearing on the camera, shifting the view to a second person perspective.
+https://qiliangw-sketch.itch.io/in-class-activity1
 ### W2
 Create future Devlog sub-headers with the three # symbols, then write your Devlogs below them.
 
