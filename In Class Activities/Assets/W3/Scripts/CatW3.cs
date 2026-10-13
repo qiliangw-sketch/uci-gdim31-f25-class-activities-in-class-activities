@@ -97,6 +97,7 @@ public class CatW3 : MonoBehaviour
             //      have to store the result anywhere.
             
 
+            DecreaseHealth();
             // STEP 2 ---------------------------------------------------------
 
             // STEP 6 ---------------------------------------------------------
@@ -109,6 +110,10 @@ public class CatW3 : MonoBehaviour
             //      and see how the cat is removed ONLY when it's checked!
             
 
+            if (_health <= 0 && _destroyCatWhenDead)
+            {
+                DestroyCat();
+            }
             // STEP 6 ---------------------------------------------------------
         }
     }
@@ -129,6 +134,8 @@ public class CatW3 : MonoBehaviour
     private void DecreaseHealth()
     {
         // write Step 3 below this comment!
+        _health -= 1.0f;
+        _healthText.text = "health = " + _health;
 
 
         // STEP 5 -------------------------------------------------------------
@@ -137,6 +144,7 @@ public class CatW3 : MonoBehaviour
         // This will look very similar to the above line to change _healthText ;)
 
 
+        _speechText.text = GetHealthSpeechText();
         // STEP 5 -------------------------------------------------------------
     }
     // STEP 3 -----------------------------------------------------------------
@@ -153,11 +161,14 @@ public class CatW3 : MonoBehaviour
     //      return "OH NO!".
     // 2. Otherwise, return "ouch".
 
-    //private ??? GetHealthSpeechText()
-    //{
-        // put the method body here!
-        
-    //}
+    private string GetHealthSpeechText()
+    {
+        if (_health < _maxHealth / 2.0f)
+        {
+            return "OH NO!";
+        }
+        return "ouch";
+    }
     
     // STEP 4 -----------------------------------------------------------------
 
@@ -170,6 +181,7 @@ public class CatW3 : MonoBehaviour
         // This means you'll need to use the '.' twice to get to the color :)
 
 
+        _spriteRenderer.color = ball.ballRenderer.color;
         // STEP 7 -------------------------------------------------------------
     }
     
