@@ -15,8 +15,6 @@ The W2 scene uses a circle sprite with initial RGB (0, 1, 0.3). Each collision i
 
 ### W3 In-Class Activity
 
-Individual responses.
-
 #### Activity 1
 
 1. I would use `string GetResponse(int friendshipLevel, bool knowsSecret)`. "Friendship level" is a number, and "knowing the secret" is a yes/no condition. The method returns a string because the output is the character's text response.
