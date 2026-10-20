@@ -31,6 +31,15 @@ Activity 3
 
 Because each quick bounce of the ball multiplies the ball color by 1.5, and the code never limits the RGB value to 1. After a few bounces, these values will grow rapidly, and values above 1 will appear brighter than normal colors.
 
+W4 In-Class Activity
+
+1. I added a CapsuleCollider (oriented along the Z-axis) to the cat and a SphereCollider to the soccer ball, and attached a Rigidbody component to both. The "Is Trigger" option is left unchecked for these colliders, allowing the cat to kick the ball and ensuring both objects can interact with the ground. The goal uses a BoxCollider with "Is Trigger" enabled; it does not require a Rigidbody because it remains stationary—it only needs to detect when the soccer ball enters, and the ball should be able to pass through it. The existing force field in the scene also functions as a trigger; the BounceOffWall scripts attached to the cat and the soccer ball ensure that whenever they exit the force field, they are bounced back toward the center of the play area.
+
+2. During setup, the Rigidbody field for CatW4 was initially unassigned; I linked the Rigidbody component once it was added. I also assigned the respective Rigidbody components to the BounceOffWall scripts. I also verified that the goal is tagged as "Goal," ensuring that points are awarded only when the soccer ball enters the goal, rather than when it interacts with the force field. In testing, the cat is able to kick the ball; scoring a goal triggers a confetti effect, updates the score, and resets the timer. If the ball remains inside the goal, it does not continuously accumulate points; however, if it leaves and then re-enters, it will award another point.
+
+Components diagram: [CatW4 ground contact and jumping](W4-components.svg).
+
+
 ## Open-Source Assets
 ### W1
 - Animals: https://assetstore.unity.com/packages/3d/characters/animals/animals-free-animated-low-poly-3d-models-260727 
