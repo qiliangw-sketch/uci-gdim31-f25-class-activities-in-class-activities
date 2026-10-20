@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="750" viewBox="0 0 1000 750">
   <rect width="1000" height="750" fill="white"/>
-  <style>text{font-family:Arial,sans-serif;fill:#172a3a;font-size:20px}.title{font-size:28px}.small{font-size:17px}.box{fill:#f0f6fb;stroke:#487796;stroke-width:2}.arrow{fill:none;stroke:#487796;stroke-width:2;marker-end:url(#head)}</style>
-  <defs><marker id="head" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#487796"/></marker></defs>
-  <text class="title" x="50" y="48">W4: How ground contact lets the cat jump again</text>
-  <rect class="box" x="50" y="85" width="390" height="105" rx="12"/>
-  <text x="75" y="120">Ground GameObject</text><text class="small" x="75" y="150">BoxCollider (Is Trigger off), tag: ground</text><text class="small" x="75" y="174">A static surface that physically supports the cat</text>
-  <rect class="box" x="560" y="85" width="390" height="105" rx="12"/>
-  <text x="585" y="120">Cat GameObject</text><text class="small" x="585" y="150">CapsuleCollider + Rigidbody + CatW4</text><text class="small" x="585" y="174">The script and physics Components share this object</text>
+  <style>text{font-family:Arial,sans-serif;fill:#222222;font-size:20px}.title{font-size:28px}.small{font-size:17px}.box{fill:#ffffff;stroke:#555555;stroke-width:2}.arrow{fill:none;stroke:#555555;stroke-width:2;marker-end:url(#head)}</style>
+  <defs><marker id="head" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#555555"/></marker></defs>
+  <text class="title" x="50" y="48">W4: How the cat jumps</text>
+  <rect class="box" x="50" y="85" width="390" height="105" rx="2"/>
+  <text x="75" y="120">Ground</text><text class="small" x="75" y="150">BoxCollider, tagged "ground"</text><text class="small" x="75" y="174">The cat stands on this.</text>
+  <rect class="box" x="560" y="85" width="390" height="105" rx="2"/>
+  <text x="585" y="120">Cat</text><text class="small" x="585" y="150">CapsuleCollider + Rigidbody + CatW4</text><text class="small" x="585" y="174">These components are all on the cat.</text>
   <path class="arrow" d="M440 138 H550"/><text class="small" x="459" y="116">touch</text>
   <path class="arrow" d="M755 190 V235 H500 V270"/>
-  <rect class="box" x="215" y="270" width="570" height="90" rx="12"/>
-  <text x="240" y="305">Unity calls CatW4.OnCollisionStay(collision)</text><text class="small" x="240" y="337">collision describes the other object and its Components.</text>
+  <rect class="box" x="215" y="270" width="570" height="90" rx="2"/>
+  <text x="240" y="305">The cat is touching something.</text><text class="small" x="240" y="337">CatW4 checks it using OnCollisionStay.</text>
   <path class="arrow" d="M500 360 V400"/>
-  <rect class="box" x="215" y="400" width="570" height="80" rx="12"/>
-  <text x="240" y="432">Is collision.gameObject.tag equal to ground?</text><text class="small" x="240" y="460">If the tag is different, this method does not change _isGrounded.</text>
+  <rect class="box" x="215" y="400" width="570" height="80" rx="2"/>
+  <text x="240" y="432">Is it the ground?</text><text class="small" x="240" y="460">Check whether its tag is "ground".</text>
   <path class="arrow" d="M500 480 V525"/><text class="small" x="515" y="509">yes</text>
-  <rect class="box" x="215" y="525" width="570" height="65" rx="12"/>
-  <text x="240" y="566">Set the CatW4 member variable _isGrounded = true</text>
+  <rect class="box" x="215" y="525" width="570" height="65" rx="2"/>
+  <text x="240" y="566">Yes: set _isGrounded to true.</text>
   <path class="arrow" d="M500 590 V625"/>
-  <rect class="box" x="145" y="625" width="710" height="80" rx="12"/>
-  <text x="170" y="657">In Update: Space pressed AND _isGrounded?</text><text class="small" x="170" y="686">Apply an upward impulse to the cat's Rigidbody, then set _isGrounded = false.</text>
-  <text class="small" x="50" y="735">Leaving the ground also calls OnCollisionExit, which sets _isGrounded to false.</text>
+  <rect class="box" x="145" y="625" width="710" height="80" rx="2"/>
+  <text x="170" y="657">On the ground + press Space = jump!</text><text class="small" x="170" y="686">Rigidbody pushes the cat up. Set _isGrounded to false.</text>
+  <text class="small" x="50" y="735">Off the ground? OnCollisionExit sets _isGrounded to false too.</text>
 </svg>
